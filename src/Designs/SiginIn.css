@@ -1,4 +1,4 @@
-/* Reset styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -87,3 +87,5 @@ button:focus {
     font-size: 0.875rem;
     margin-top: 4px;
 }
+
+

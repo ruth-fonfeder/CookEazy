@@ -79,7 +79,9 @@
 
 import React from "react";
 import { Link } from "react-router-dom"; // ליבוא הקישורים
-import "../Designs/SiginIn.css"; // עיצוב מותאם אישית
+ import { Button, Typography, Container, Box } from "@mui/material"; // רכיבים מ-MUI
+import { styled } from "@mui/system"; // לתמיכה בעיצוב עם MUI
+//import "../Designs/SiginIn.css"; // עיצוב מותאם אישית
 
 const Home = () => {
   return (
@@ -99,7 +101,7 @@ const Home = () => {
           <button className="custom-button primary">התחבר 🤍</button>
         </Link>
 
-        <Link to="/myrecipes" className="link-button">
+        <Link to="/AddRecipe" className="link-button">
           <button className="custom-button secondary">המתכונים שלי 🤍</button>
         </Link>
 
