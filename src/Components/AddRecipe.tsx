@@ -229,6 +229,7 @@
 // };
 
 // export default AddRecipe;
+
 import React, { useState } from "react";
 const AddRecipeForm = () => {
   const [recipe, setRecipe] = useState({
@@ -351,7 +352,7 @@ const AddRecipeForm = () => {
           <label>Difficulty</label>
           <select
             value={recipe.difficulty}
-            onChange={(e) => handleInputChange(e, "difficulty")}
+            onChange={(e:any) => handleInputChange(e, "difficulty")}
           >
             <option value="">Select Difficulty</option>
             <option value="easy">Easy</option>

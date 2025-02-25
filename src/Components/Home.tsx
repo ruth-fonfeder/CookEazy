@@ -87,11 +87,11 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="image-container">
-        <img
+        {/* <img
           className="cake-images"
           src="https://source.unsplash.com/1600x900/?cake"
           alt="cake"
-        />
+        /> */}
       </div>
 
       <div className="buttons-container">

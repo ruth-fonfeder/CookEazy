@@ -15,6 +15,7 @@ const UserContext=({children}:{children:ReactElement})=>{
     const setMyUser = (user: user) => {
       setUser(user);
 };
+
 return (
     <userContext.Provider value={{ MyUser: user, setMyUser }}>
       {children}

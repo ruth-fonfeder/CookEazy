@@ -181,11 +181,12 @@
 
 // export default AllRecipes;
 //מתכונים מהשרת
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import { Card, Typography, Grid, Box, Button } from "@mui/material";
 import { styled } from "@mui/system";
-import { useNavigate } from "react-router-dom"; // בשביל הניווט
+import { data, useNavigate } from "react-router-dom"; // בשביל הניווט
 import axios from 'axios'; // ייבוא axios
+import { userContext } from "../userContext";
 
 // Reducer
 const initialState = { recipes: [], loading: true, error: null };
@@ -214,7 +215,7 @@ const StyledCard = styled(Card)(() => ({
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "center",
- // minHeight: "50px", // גובה קבוע
+  // minHeight: "50px", // גובה קבוע
   marginBottom: "20px",
   overflow: "auto", // בגלילה בתוכן ארוך
   position: "relative",
@@ -277,6 +278,10 @@ const AddRecipeButton = styled(Button)(() => ({
 }));
 
 const AllRecipes = () => {
+  let header: Boolean = false;
+  const { MyUser } = useContext(userContext)
+  if (MyUser?.id)
+    header = true
   const [state, dispatch] = useReducer(recipeReducer, initialState);
   const navigate = useNavigate(); // לשימוש בניווט
 
@@ -297,7 +302,12 @@ const AllRecipes = () => {
   return (
     <PageContainer>
       {/* כפתור הוספת מתכון */}
-      <AddRecipeButton onClick={() => navigate("/AddRecipe")}>➕ Add Recipe</AddRecipeButton>
+      <AddRecipeButton
+        onClick={() => navigate("/AddRecipe")}
+        disabled={!header} // הכפתור יושבת אם התנאי לא מתקיים
+      >
+        ➕ Add Recipe
+      </AddRecipeButton>
 
       {state.loading ? (
         <Typography>Loading...</Typography>
@@ -314,8 +324,8 @@ const AllRecipes = () => {
                   {recipe.Description}
                 </Typography>
                 <Typography sx={{ marginBottom: "15px", display: 'inline' }}>
-  ⏳ {recipe.Duration} min | 🔥 {recipe.Difficulty}
-</Typography>
+                  ⏳ {recipe.Duration} min | 🔥 {recipe.Difficulty}
+                </Typography>
 
 
                 <Typography variant="h6" sx={{ fontWeight: "bold", color: "#f50380" }}>

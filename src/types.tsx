@@ -1,11 +1,11 @@
 export type user = {
-    Username: string,
-    Password:string,
-    Name: string,
-    Phone: string,
-    Email:string,
-    Tz: string,
-    Id: number|null
+    username: string,
+    password:string,
+    name: string,
+    phone: string,
+    email:string,
+    tz: string,
+    id: number|null
 }
 export type Ingrident= {
 
