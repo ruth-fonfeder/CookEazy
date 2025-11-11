@@ -1,26 +1,71 @@
-import { createContext ,ReactElement, useState} from "react"
-import { user } from "./types"
+// import { createContext ,ReactElement, useState} from "react"
+// import { user } from "./types"
 
-type typeContext={
-MyUser:user|null,
-setMyUser:(MyUser:user)=> void
-}
-export const userContext=createContext<typeContext>({
-    MyUser:null,
-    setMyUser:(_:user)=>{}
-});
-const UserContext=({children}:{children:ReactElement})=>{
-    const [user, setUser] = useState<user | null>(null);
+// type typeContext={
+// MyUser:user|null,
+// setMyUser:(MyUser:user)=> void
+// }
+// export const userContext=createContext<typeContext>({
+//     MyUser:null,
+//     setMyUser:(_:user)=>{}
+// });
+// const UserContext=({children}:{children:ReactElement})=>{
+//     const [user, setUser] = useState<user | null>(null);
 
-    const setMyUser = (user: user) => {
-      setUser(user);
+//     const setMyUser = (user: user) => {
+//       setUser(user);
+// };
+
+// return (
+//     <userContext.Provider value={{ MyUser: user, setMyUser }}>
+//       {children}
+//     </userContext.Provider>
+//   );
+// };
+
+// export default UserContext;
+import { createContext, ReactElement, useEffect, useState } from "react";
+import { Recipise, user } from "./types";
+import AllRecipes from "./Components/AllRecipes";
+
+type typeContext = {
+    MyUser: user | null,
+    setMyUser: (MyUser: user | null) => void,
+    // myRecipe: recipe|null,
+    // setMyRecipe: (recipe:recipe|null)=>void;
 };
 
-return (
-    <userContext.Provider value={{ MyUser: user, setMyUser }}>
-      {children}
-    </userContext.Provider>
-  );
+export const userContext = createContext<typeContext>({
+    MyUser: null,
+    setMyUser: () => {},
+    // myRecipe: null,
+    // setMyRecipe: ()=>{}
+});
+
+const UserContext = ({ children }: { children: ReactElement }) => {
+    const [user, setUser] = useState<user | null>(null);
+
+    useEffect(() => {
+        const savedUser = sessionStorage.getItem("user");
+        if (savedUser) {
+            setUser(JSON.parse(savedUser));
+        }
+    }, []);
+
+    const setMyUser = (user: user | null) => {
+        setUser(user);
+        if (user) {
+            sessionStorage.setItem("user", JSON.stringify(user));
+        } else {
+            sessionStorage.removeItem("user");
+        }
+    };
+
+    return (
+        <userContext.Provider value={{ MyUser: user, setMyUser}}>
+            {children}
+        </userContext.Provider>
+    );
 };
 
 export default UserContext;
