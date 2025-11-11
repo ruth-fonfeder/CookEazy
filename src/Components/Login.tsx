@@ -1,89 +1,132 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
-import "../Designs/login.css";
-import SignIn from "./SignIn";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
-const schema = yup.object().shape({
-    username: yup
-        .string()
-        .required("שם משתמש הוא שדה חובה")
-        .test('not-email', 'שם המשתמש לא יכול להיות כתובת מייל', value => {
-            return !/\S+@\S+\.\S+/.test(value); // בודק אם זה לא כתובת מייל
-        }),
-    password: yup
-        .string()
-        .min(8, "סיסמה חייבת להכיל לפחות 8 תווים")
-        .required("סיסמה היא שדה חובה"),
-});
+// const Login = () => {
+//   const [UserName, setUserName] = useState("");
+//   const [Password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const onSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     try {
+//         const response = await fetch("http://localhost:8080/api/user/login", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify({ UserName, Password })
+//         });
+
+//         const data = await response.json();
+
+//         if (!response.ok) {
+//             // אם השרת החזיר שגיאה – נזרוק הודעה
+//             throw new Error(data || "Login failed");
+//         }
+
+//         console.log("Logged in user:", data);
+
+//         navigate('/home'); 
+//         // כאן אפשר לשמור את המשתמש ב־state או בהקשר
+//     } catch (err: any) {
+//         console.error("Error logging in:", err.message);
+//         // כאן אפשר להציג הודעה למשתמש
+//     }
+// };
+
+
+//   return (
+//     <div>
+//       <h2>Login</h2>
+//       {error && <p style={{ color: "red" }}>{error}</p>}
+//       <form onSubmit={onSubmit}>
+//         <div>
+//           <label>Username:</label>
+//           <input
+//             type="text"
+//             value={UserName}
+//             onChange={(e) => setUserName(e.target.value)}
+//           />
+//         </div>
+//         <div>
+//           <label>Password:</label>
+//           <input
+//             type="password"
+//             value={Password}
+//             onChange={(e) => setPassword(e.target.value)}
+//           />
+//         </div>
+//         <button type="submit">Login</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    
-    const navigate = useNavigate();
-    
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
-        resolver: yupResolver(schema),
-    });
+  const [UserName, setUserName] = useState("");
+  const [Password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-    const onSubmit = async (data: {username:string;password:string}) => {
-        try {
-            const response = await fetch("http://localhost:8080/api/user/Login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    UserName: data.username,
-                    Password: data.password,
-                }),
-            });
-            
-            if (response.ok) {
-                const user = await response.json();
-                console.log("User found:", user);
-                navigate("/Home"); // מעביר לדף הבית
-            } else {
-                console.log("User not found, redirecting to sign-up");
-                navigate("/SignIn"); // מעביר לדף הרשמה
-            }
-        } catch (error) {
-            console.error("Error logging in:", error);
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+        const response = await fetch("http://localhost:8080/api/user/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ UserName, Password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            // אם השרת החזיר שגיאה – הצג את ההודעה ב-state
+            setError(data || "שם משתמש או סיסמה שגויים");
+            return;
         }
-    };
 
-    return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-lg w-96">
-                <h1>CookEazy🧁</h1>
+        console.log("Logged in user:", data);
+        setError(""); // נקה הודעת שגיאה אם הצליח
 
-                <label>UserName:</label>
-                <input
-                    type="text"
-                    {...register("username")}
-                />
-                {errors.username && <p className="text-red-500">{errors.username.message}</p>}
+        navigate('/Home'); 
+        // כאן אפשר לשמור את המשתמש ב־state או בהקשר
+    } catch (err: any) {
+        console.error("Error logging in:", err.message);
+        setError("שם משתמש או סיסמה שגוי, נסי שנית");
+    }
+  };
 
-                <label>Password:</label>
-                <input
-                    type="password"
-                    {...register("password")}
-                />
-                {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-
-                <button type="submit" onClick={SignIn} className="signup-button">
-                    Login 🤍
-                    
-                </button>
-              
-            </form>
+  return (
+    <div>
+      <h2>Login</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <form onSubmit={onSubmit}>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            value={UserName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
-    );
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={Password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
 };
 
 export default Login;
