@@ -25,7 +25,7 @@ const recipeReducer = (state: any, action: any): any => {
 const StyledCard = styled(Card)(() => ({
   backgroundColor: "white",
   color: "black",
-  padding: "200px", // הגדר padding סביר שייתן מקום לכל התוכן
+  padding: "2px", // הגדר padding סביר שייתן מקום לכל התוכן
   borderRadius: "16px",
   boxShadow: "0px -4px 15px rgba(0, 0, 0, 0.2)", // box-shadow למעלה
   textAlign: "center",
@@ -63,7 +63,7 @@ const PageContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  width: "1000",
+  width: "1000 px",
 }));
 
 // כפתורים

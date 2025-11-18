@@ -1,6 +1,6 @@
-/* Reset styles */
+/* Reset styles
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,12 +13,12 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f3f4f6; /* רקע אפור בהיר */
+    background-color: #f3f4f6; 
 }
 
 h2 {
     font-size: 2rem;
-    color: #f50380; /* צבע חום כהה */
+    color: #f50380; 
     font-weight: bold;
     margin-bottom: 24px;
     text-align: center;
@@ -26,7 +26,7 @@ h2 {
 
 label {
     font-size: 1rem;
-    color: #f50380; /* צבע חום כהה */
+    color: #f50380; 
     margin-bottom: 8px;
     font-weight: 600;
     text-align: right;
@@ -37,23 +37,23 @@ input {
     padding: 12px 16px;
     margin-bottom: 16px;
     border-radius: 8px;
-    border: 2px solid #c7b8b0; /* צבע border חום בהיר */
+    border: 2px solid #c7b8b0; 
     font-size: 1rem;
-    background-color: #f9f4f1; /* רקע בהיר ל-input */
-    color: #f50380; /* צבע טקסט חום כהה */
+    background-color: #f9f4f1; 
+    color: #f50380; 
     transition: border-color 0.3s, background-color 0.3s;
 }
 
 input:focus {
-    border-color: #f50380; /* צבע border כשיש פוקוס (חום יותר כהה) */
-    background-color: #fff; /* רקע לבן כשיש פוקוס */
+    border-color: #f50380; 
+    background-color: #fff; 
     outline: none;
 }
 
 button {
     width: 100%;
     padding: 14px;
-    background-color: #f50380; /* צבע וורוד עתיק */
+    background-color: #f50380; 
     color: white;
     border: none;
     border-radius: 8px;
@@ -64,17 +64,17 @@ button {
 }
 
 button:hover {
-    background-color:#f50380; /* צבע כהה יותר בה-hover */
-    transform: scale(1.05); /* מעבר עדין של התפחות כפתור */
+    background-color:#f50380; 
+    transform: scale(1.05); 
 }
 
 button:focus {
     outline: none;
 }
 
-/* הודעות שגיאה */
+
 .text-red-500 {
-    color: #ff4d4d; /* צבע אדום לשגיאות */
+    color: #ff4d4d; 
     font-size: 0.875rem;
     margin-top: 4px;
-}
+} */

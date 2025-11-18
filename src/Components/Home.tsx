@@ -1,10 +1,16 @@
-import React from "react";
+// import React from "react";
+import React, { useContext } from "react";
+
 import { Link } from "react-router-dom"; // ליבוא הקישורים
- import { Button, Typography, Container, Box } from "@mui/material"; // רכיבים מ-MUI
+import { Button, Typography, Container, Box } from "@mui/material"; // רכיבים מ-MUI
 import { styled } from "@mui/system"; // לתמיכה בעיצוב עם MUI
+import { userContext } from "../userContext";
+
 //import "../Designs/SiginIn.css"; // עיצוב מותאם אישית
 
 const Home = () => {
+  const { MyUser } = useContext(userContext);
+  console.log("Home MyUser:", MyUser);
   return (
     <div className="home-container">
       <div className="image-container">
@@ -15,14 +21,17 @@ const Home = () => {
         /> */}
       </div>
 
+
       <div className="buttons-container">
-        <h1>Wellcome to CookEazy  ✨</h1>
+        {/* <h2>ברוכה הבאה {MyUser?.name}</h2> */}
 
-        <Link to="/Login" className="link-button">
+        <h1>Welcome to CookEazy  ✨</h1>
+
+        {/* <Link to="/Login" className="link-button">
           <button className="custom-button primary">התחבר 🤍</button>
-        </Link>
+        </Link> */}
 
-        <Link to="/AddRecipe" className="link-button">
+        <Link to="/MyRecipe" className="link-button">
           <button className="custom-button secondary">המתכונים שלי 🤍</button>
         </Link>
 
@@ -30,9 +39,13 @@ const Home = () => {
           <button className="custom-button success">לכל המתכונים 🤍</button>
         </Link>
 
-        <Link to="/login" className="link-button">
-          <button className="custom-button error">יציאה 🤍</button>
-        </Link>
+        <button className="custom-button primary">בחר לפי קטגוריה 🤍</button>
+        <Link to="/AddRecipe" className="link-button">
+          <button className="custom-button primary">הוספת מתכון ➕</button>
+          </Link>
+            <Link to="/login" className="link-button">
+            <button className="custom-button error">יציאה 🤍</button>
+          </Link>
       </div>
     </div>
   );

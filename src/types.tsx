@@ -27,3 +27,7 @@ export type Recipise={
    Description :string
   
 }
+export type Category= {
+    id: number;    // שימוש ב-camelCase ב-frontend
+    name: string;  // שימוש ב-camelCase ב-frontend
+  }
