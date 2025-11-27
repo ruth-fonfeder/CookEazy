@@ -54,7 +54,7 @@ const SignIn = () => {
             );
             console.log('✅ המשתמש נרשם בהצלחה:', response.data);
             setMyUser({
-                id: response.data.id,
+                Id: response.data.Id,
                 password: response.data.password,
                 name: response.data.name,
                 username: response.data.username,

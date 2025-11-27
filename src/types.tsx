@@ -5,7 +5,7 @@ export type user = {
     phone: string,
     email:string,
     tz: string,
-    id: number|null
+    Id: number|null
 }
 export type Ingrident= {
 

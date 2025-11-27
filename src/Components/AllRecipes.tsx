@@ -116,7 +116,23 @@ const AllRecipes = () => {
     };
     fetchRecipes();
   }, []);
-
+  const handleDelete = async (id: number) => {
+    if (!window.confirm("בטוחה שאת רוצה למחוק את המתכון?")) return;
+  
+    try {
+      await axios.post(`http://localhost:8080/api/recipe/delete/${id}`);
+      dispatch({
+        type: "SET_RECIPES",
+        payload: state.recipes.filter((r: any) => r.Id !== id),
+      });
+      alert("המתכון נמחק!");
+    } catch (err) {
+      console.error(err);
+      alert("שגיאה במחיקה");
+    }
+  };
+  
+  
   return (
     <PageContainer>
       {/* כפתור הוספת מתכון */}
@@ -163,14 +179,28 @@ const AllRecipes = () => {
                     {index + 1}. {inst.Name}
                   </Typography>
                 ))}
-                <ButtonContainer>
-                  <Button variant="contained" color="primary" size="small">
-                    Update
-                  </Button>
-                  <Button variant="outlined" color="secondary" size="small">
-                    Delete
-                  </Button>
-                </ButtonContainer>
+                {MyUser && recipe.UserId === MyUser.Id && (
+                  <ButtonContainer>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                      onClick={() => navigate(`/UpdateRecipe/${recipe.Id}`)}
+                    >
+                      Update
+                    </Button>
+
+                    <Button
+                      variant="outlined"
+                      color="secondary"
+                      size="small"
+                      onClick={() => handleDelete(recipe.Id)}
+                    >
+                      Delete
+                    </Button>
+                  </ButtonContainer>
+                )}
+
               </StyledCard>
             </Grid>
           ))}

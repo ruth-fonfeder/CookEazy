@@ -6,6 +6,7 @@ import WelcomePage from "./Components/welcomePage";
 import AllRecipes from "./Components/AllRecipes";
 import AddRecipe from "./Components/AddRecipe";
 import UserContext from "./userContext";
+import MyRecipe from "./Components/MyRecipe";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/AllRecipes" element={<AllRecipes />} />
                     <Route path="/AddRecipe" element={<AddRecipe />} />
                     <Route path="/Home" element={< Home />} />
+                    <Route path="/MyRecipe" element={< MyRecipe />} />
                 </Routes>
             </Router>
         </UserContext>
