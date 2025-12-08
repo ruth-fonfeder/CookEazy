@@ -7,7 +7,8 @@ import AllRecipes from "./Components/AllRecipes";
 import AddRecipe from "./Components/AddRecipe";
 import UserContext from "./userContext";
 import MyRecipe from "./Components/MyRecipe";
-
+import UpdateRecipe from "./Components/UpdateRecipe";
+import ChooseByCategoryPage from "./Components/ChooseByCategoryPage";
 
 function App() {
     return (
@@ -22,6 +23,8 @@ function App() {
                     <Route path="/AddRecipe" element={<AddRecipe />} />
                     <Route path="/Home" element={< Home />} />
                     <Route path="/MyRecipe" element={< MyRecipe />} />
+                    <Route path="/UpdateRecipe/:id" element={< UpdateRecipe />} />
+                    <Route path="/ChooseByCategoryPage" element={< ChooseByCategoryPage />} />
                 </Routes>
             </Router>
         </UserContext>
