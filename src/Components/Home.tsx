@@ -39,7 +39,7 @@ const Home = () => {
           <button className="custom-button success">לכל המתכונים 🤍</button>
         </Link>
 
-        <Link to="/ChooseByCategoryPage" className="link-button">
+        <Link to="/AllRecipes" className="link-button">
         <button className="custom-button primary">בחר לפי קטגוריה 🤍</button>
         </Link>
      
