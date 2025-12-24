@@ -1,0 +1,315 @@
+.add-recipe-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    direction: rtl;
+  }
+  
+  .add-recipe-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  /* הדר */
+  .add-recipe-header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .add-recipe-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: #7fa99b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background: #6b8f82;
+    transform: translateX(3px);
+  }
+  
+  .add-recipe-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #7fa99b;
+  }
+  
+  .add-recipe-logo svg {
+    stroke: #ef9273;
+  }
+  
+  /* תוכן ראשי */
+  .add-recipe-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  
+  .add-recipe-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+  
+  .add-recipe-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .add-recipe-subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  /* טופס */
+  .add-recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* אינפוטים בסגנון Google */
+  .input-wrapper {
+    position: relative;
+  }
+  
+  .form-input,
+  .form-textarea,
+  .form-select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus,
+  .form-select:focus {
+    outline: none;
+    border-color: #7fa99b;
+  }
+  
+  .form-label {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #6c757d;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.25rem;
+  }
+  
+  .form-input:focus ~ .form-label,
+  .form-input:not(:placeholder-shown) ~ .form-label,
+  .form-textarea:focus ~ .form-label,
+  .form-textarea:not(:placeholder-shown) ~ .form-label {
+    top: -0.6rem;
+    right: 0.75rem;
+    font-size: 0.85rem;
+    color: #7fa99b;
+    font-weight: 500;
+  }
+  
+  .form-select:focus ~ .select-label,
+  .form-select:not([value=""]) ~ .select-label {
+    top: -0.6rem;
+    right: 0.75rem;
+    font-size: 0.85rem;
+    color: #7fa99b;
+    font-weight: 500;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    padding-top: 1.2rem;
+  }
+  
+  .input-hint {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+  }
+  
+  /* מרכיבים */
+  .ingredient-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 0.75rem;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+  
+  .ingredient-input {
+    flex: 1;
+  }
+  
+  .remove-btn {
+    padding: 0.8rem;
+    background: #fee;
+    color: #dc3545;
+    border: 2px solid #fcc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .remove-btn:hover:not(:disabled) {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+  }
+  
+  .remove-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .add-ingredient-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #f8f9fa;
+    color: #7fa99b;
+    border: 2px dashed #7fa99b;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .add-ingredient-btn:hover {
+    background: #7fa99b;
+    color: white;
+    border-style: solid;
+  }
+  
+  /* כפתור שליחה */
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, #7fa99b 0%, #6b8f82 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(127, 169, 155, 0.3);
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(127, 169, 155, 0.4);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* הודעות שגיאה */
+  .error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .add-recipe-content {
+      padding: 2rem 1.5rem;
+    }
+  
+    .add-recipe-title {
+      font-size: 2rem;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .ingredient-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .remove-btn {
+      width: 100%;
+    }
+  
+    .add-recipe-header-content {
+      padding: 1rem;
+    }
+  }
+  

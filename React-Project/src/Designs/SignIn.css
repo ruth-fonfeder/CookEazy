@@ -1,0 +1,239 @@
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .signin-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    direction: rtl;
+  }
+  
+  /* צד התמונה */
+  .signin-image-side {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(106, 156, 137, 0.95), rgba(106, 156, 137, 0.85)),
+      url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&q=80") center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+  }
+  
+  .signin-overlay {
+    text-align: center;
+    color: white;
+    z-index: 1;
+  }
+  
+  .signin-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chef-hat-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+  }
+  
+  .signin-logo h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+  }
+  
+  .signin-tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* צד הטופס */
+  .signin-form-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background: #fafaf9;
+  }
+  
+  .signin-form-wrapper {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .signin-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .signin-header h2 {
+    font-size: 2rem;
+    color: #1c1c1c;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .signin-header p {
+    color: #6b7280;
+    font-size: 1rem;
+  }
+  
+  /* טופס */
+  .signin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  /* עיצוב floating labels כמו בגוגל */
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    padding: 1rem 0.875rem 0.5rem 0.875rem;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: white;
+    transition: all 0.2s ease;
+  }
+  
+  .input-wrapper input:focus {
+    border-color: #6a9c89;
+    box-shadow: 0 0 0 3px rgba(106, 156, 137, 0.1);
+  }
+  
+  .input-wrapper label {
+    position: absolute;
+    right: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: white;
+    padding: 0 0.25rem;
+  }
+  
+  /* כאשר האינפוט ממולא או בפוקוס - ה-label עולה למעלה */
+  .input-wrapper input:focus + label,
+  .input-wrapper input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: #6a9c89;
+    font-weight: 500;
+  }
+  
+  .input-wrapper input:focus + label {
+    color: #6a9c89;
+  }
+  
+  .error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* כפתור שליחה */
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #6a9c89, #5a8c79);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(106, 156, 137, 0.3);
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(106, 156, 137, 0.4);
+  }
+  
+  .submit-button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* פוטר */
+  .signin-footer {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+  }
+  
+  .signin-footer a {
+    color: #6a9c89;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  
+  .signin-footer a:hover {
+    color: #5a8c79;
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 968px) {
+    .signin-container {
+      flex-direction: column;
+    }
+  
+    .signin-image-side {
+      min-height: 250px;
+    }
+  
+    .signin-logo h1 {
+      font-size: 2.5rem;
+    }
+  
+    .signin-tagline {
+      font-size: 1.2rem;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  

@@ -1,0 +1,298 @@
+
+.home-page {
+    min-height: 100vh;
+    /* צבעים דומים להרשמה וההתחברות - יותר חיים */
+    background: linear-gradient(135deg, #e8f4f0 0%, #ffe9e5 100%);
+  }
+  
+  /* Header Styles */
+  .home-header {
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+  }
+  
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* ירוק-מרווה חי יותר */
+    color: #4a9b7f;
+  }
+  
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    color: #4a9b7f;
+  }
+  
+  .logo-text {
+    /* גרדיאנט עם ירוק-מרווה וקורל חי */
+    background: linear-gradient(135deg, #4a9b7f 0%, #ff7a68 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #1a202c;
+    font-weight: 600;
+  }
+  
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    color: #4a9b7f;
+  }
+  
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    /* קורל חי יותר */
+    background: linear-gradient(135deg, #ff7a68 0%, #ff9583 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 122, 104, 0.4);
+  }
+  
+  .logout-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    /* רקע עם הצבעים החדשים */
+    background: linear-gradient(135deg, rgba(74, 155, 127, 0.1) 0%, rgba(255, 122, 104, 0.1) 100%);
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    /* גרדיאנט חי עם הצבעים החדשים */
+    background: linear-gradient(135deg, #4a9b7f 0%, #ff7a68 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: #2d3748;
+    font-weight: 400;
+  }
+  
+  /* Navigation Cards */
+  .navigation-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  
+  /* מבנה חדש - שורות במקום גריד */
+  .nav-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .nav-cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .nav-cards-row.centered {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+  }
+  
+  .nav-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    /* ירוק-מרווה בגבול */
+    border-color: #4a9b7f;
+  }
+  
+  .nav-card-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ירוק-מרווה חי */
+    background: linear-gradient(135deg, #4a9b7f 0%, #5fb396 100%);
+    color: white;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-card:hover .nav-card-icon {
+    transform: scale(1.15) rotate(5deg);
+  }
+  
+  .nav-card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* כרטיס הוספת מתכון באמצע השורה השנייה */
+  .nav-card.add-recipe-featured {
+    max-width: 500px;
+    padding: 3rem;
+    /* קורל חי */
+    background: linear-gradient(135deg, #ff7a68 0%, #ff9583 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(255, 122, 104, 0.3);
+  }
+  
+  .nav-card.add-recipe-featured:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(255, 122, 104, 0.4);
+    border-color: #ff5a47;
+  }
+  
+  .nav-card.add-recipe-featured .nav-card-icon {
+    width: 80px;
+    height: 80px;
+    background: white;
+    color: #ff7a68;
+  }
+  
+  .nav-card.add-recipe-featured .nav-card-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .nav-card.add-recipe-featured .nav-card-title {
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .nav-card.add-recipe-featured .nav-card-description {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.125rem;
+  }
+  
+  .nav-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+  }
+  
+  .nav-card-description {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header-content {
+      padding: 0 1rem;
+    }
+  
+    .header-logo {
+      font-size: 1.25rem;
+    }
+  
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+  
+    .user-welcome span {
+      display: none;
+    }
+  
+    .logout-btn span {
+      display: none;
+    }
+  
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+  
+    .nav-cards-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  
+    .nav-card.add-recipe-featured {
+      max-width: 100%;
+      padding: 2rem;
+    }
+  
+    .nav-card.add-recipe-featured .nav-card-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: 2rem 1rem;
+    }
+  
+    .navigation-section {
+      padding: 2rem 1rem 3rem;
+    }
+  }
+  
